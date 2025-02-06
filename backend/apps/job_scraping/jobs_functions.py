@@ -10,6 +10,7 @@ import pandas as pd
 from config.settings import DATABASES
 import logging
 import json
+from .models import Job
 
 def get_links(page_number, published_since):
     """
@@ -216,6 +217,88 @@ def clean_json(raw_json, link):
     logging.info(f"[CLEAN_JSON] Completed cleaning JSON for link: {link}. Total cleaned entries: {len(cleaned_data)}.")
     return cleaned_data
 
+def insert_jobinfo_orm(clean_data):
+    """
+    Insert or update job entries using Django ORM.
+    Parameters:
+        clean_data (list of dict): Cleaned job data where each entry is a dictionary containing field-value pairs.
+    """
+    logging.info("[INSERT_JOBINFO_ORM] Starting insertion of cleaned job data into database.")
+    
+    for job in clean_data:
+        job_id = job.get("id")
+        if not job_id:
+            logging.warning("[INSERT_JOBINFO_ORM] Skipping job entry without 'id'.")
+            number_of_jobs -= 1
+            continue
+
+        # Extract and clean language_skills if needed
+        language_skills_list = job.get("language_skills", [])
+        language_skills_str = ", ".join(
+            [
+                f"{skill.get('language', '')} (Level {skill.get('level', '')})"
+                for skill in language_skills_list if isinstance(skill, dict)
+            ]
+        )
+
+        # Extract and clean skills if needed
+        skills_list = job.get("skills", [])
+        skills_str = ", ".join(skills_list)
+
+        # Clean template fields (remove HTML tags)
+        template_lead_text = job.get("template_lead") or ""
+        template_lead = BeautifulSoup(template_lead_text, "html.parser").get_text(strip=True)
+        template_text_text = job.get("template_text") or ""
+        template_text = BeautifulSoup(template_text_text, "html.parser").get_text(strip=True)
+        combined_template = f"{template_lead}\n\n{template_text}".strip()
+
+        # Convert industry value: if it's an empty string, set to None; else try to convert to int.
+        industry_value = job.get("industry")
+        if industry_value == "":
+            industry_value = None
+        else:
+            try:
+                industry_value = int(industry_value)
+            except ValueError:
+                industry_value = None  # Or handle it as needed
+        
+        try:
+            Job.objects.update_or_create(
+                id=job_id,
+                defaults={
+                    "externalUrl": job.get("externalUrl"),
+                    "logo": job.get("logo"),
+                    "company_id": job.get("company_id"),
+                    "company_name": job.get("company_name"),
+                    "contact_firstName": job.get("contact_firstName"),
+                    "contact_lastName": job.get("contact_lastName"),
+                    "headhunterApplicationAllowed": job.get("headhunterApplicationAllowed", False),
+                    "initialPublicationDate": job.get("initialPublicationDate"),
+                    "isActive": job.get("isActive", False),
+                    "isPaid": job.get("isPaid", False),
+                    "language_skills": language_skills_str,
+                    "postalCode": job.get("postalCode"),
+                    "city": job.get("city"),
+                    "cantonCode": job.get("cantonCode"),
+                    "countryCode": job.get("countryCode"),
+                    "publicationDate": job.get("publicationDate"),
+                    "publicationEndDate": job.get("publicationEndDate"),
+                    "skills": skills_str,
+                    "synonym": job.get("synonym"),
+                    "template_lead": combined_template,
+                    "template_title": job.get("template_title"),
+                    "industry": industry_value
+                    "regionID": job.get("regionID"),
+                    "employmentPositionIds": job.get("employmentPositionIds"),
+                    "employmentTypeIds": job.get("employmentTypeIds"),
+                    "employmentGrades": job.get("employmentGrades"),
+                },
+            )
+            logging.debug(f"[INSERT_JOBINFO_ORM] Inserted/updated job ID: {job_id}")
+        except Exception as e:
+            logging.error(f"[INSERT_JOBINFO_ORM] Error inserting job {job_id}: {e}")
+
+
 def insert_jobinfo_sqlite(clean_data, db_path=DATABASES['jobs']):
     """
     Inserts cleaned job data into a SQLite database, adding new columns dynamically if they don't exist.
@@ -409,6 +492,35 @@ def get_scraped_links():
     logging.info("[GET_SCRAPED_LINKS] Completed fetching scraped links.")
     return scraped_links    
 
+def get_scraped_links_orm():
+    """
+    Retrieve all previously scraped job links from the database using Django ORM.
+
+    Returns:
+        set: A set of job URLs that have already been scraped.
+    """
+    from .models import Job  # Import the Job model from your app
+
+    logging.info("[GET_SCRAPED_LINKS_ORM] Starting to fetch scraped links using Django ORM.")
+
+    try:
+        # Get all job IDs from the Job model using Django's ORM.
+        job_ids = Job.objects.values_list("id", flat=True)
+        
+        # Build the set of scraped links from job IDs
+        scraped_links = {
+            f"https://www.jobup.ch/en/jobs/detail/{job_id}/?source=vacancy_search"
+            for job_id in job_ids if job_id
+        }
+        
+        logging.info(f"[GET_SCRAPED_LINKS_ORM] Retrieved {len(scraped_links)} scraped links.")
+    except Exception as e:
+        logging.error(f"[GET_SCRAPED_LINKS_ORM] Failed to fetch job IDs: {e}")
+        scraped_links = set()
+
+    logging.info("[GET_SCRAPED_LINKS_ORM] Completed fetching scraped links.")
+    return scraped_links
+
 def scrape_and_store_jobs(max_pages=100, published_since=1, db_path=DATABASES['jobs']):
     """
     Scrape job postings from Jobup and insert them into an SQLite database.
@@ -469,3 +581,74 @@ def scrape_and_store_jobs(max_pages=100, published_since=1, db_path=DATABASES['j
 
     logging.info("[SCRAPE_AND_STORE_JOBS] Scraping completed.")
 
+
+def scrape_and_store_jobs_orm(max_pages=100, published_since=3):
+    """
+    Scrape job postings from Jobup and store them using Django ORM.
+
+    This function uses the original get_links, get_job_info, and clean_json functions
+    (which remain unchanged) and replaces the raw SQLite insertion with an ORM-based
+    insertion (via insert_jobinfo_orm).
+
+    Args:
+        max_pages (int): Maximum number of pages to scrape.
+        published_since (int): The number of days since publication to filter job postings.
+    """
+    logging.info("[SCRAPE_AND_STORE_JOBS_ORM] Starting job scraping process using Django ORM.")
+
+    # Retrieve already scraped job links using the ORM-based helper.
+    scraped_links = get_scraped_links_orm()
+
+    # Loop over pages to scrape jobs.
+    for page_number in range(1, max_pages + 1):
+        try:
+            logging.info(f"[SCRAPE_AND_STORE_JOBS_ORM] Scraping page {page_number}...")
+            
+            # Get job links from the current page.
+            job_links = get_links(page_number, published_since)
+            
+            # If no new links are found, or if all links are already scraped, exit the loop.
+            if not job_links or scraped_links.issuperset(job_links):
+                logging.info("[SCRAPE_AND_STORE_JOBS_ORM] No new links found. Exiting loop.")
+                break
+            
+            inserted_jobs_counter = 0
+            for link in job_links:
+                if link in scraped_links:
+                    logging.info(f"[SCRAPE_AND_STORE_JOBS_ORM] Skipping already-scraped link: {link}")
+                    continue
+
+                try:
+                    # Fetch job info from the link.
+                    raw_info = get_job_info(link)
+                    if not raw_info:
+                        logging.warning(f"[SCRAPE_AND_STORE_JOBS_ORM] No job info found for {link}. Skipping.")
+                        continue
+
+                    # Clean and format the fetched JSON data.
+                    clean_info = clean_json(raw_info, link)
+                    if not clean_info:
+                        logging.warning(f"[SCRAPE_AND_STORE_JOBS_ORM] Cleaned data is empty for {link}. Skipping insertion.")
+                        continue
+
+                    # Insert or update the job entry using Django ORM.
+                    insert_jobinfo_orm(clean_info)
+                    inserted_jobs_counter += 1
+                    
+                    # Mark this link as processed.
+                    scraped_links.add(link)
+                    logging.info(f"[SCRAPE_AND_STORE_JOBS_ORM] Successfully processed job from {link}.")
+                
+                except Exception as e:
+                    logging.error(f"[SCRAPE_AND_STORE_JOBS_ORM] Error processing job link {link}: {e}")
+                    logging.debug(traceback.format_exc())
+            
+            # Pause between pages for respectful scraping.
+            time.sleep(5)
+        
+        except Exception as e:
+            logging.error(f"[SCRAPE_AND_STORE_JOBS_ORM] Error on page {page_number}: {e}")
+            logging.debug(traceback.format_exc())
+            continue
+
+    logging.info("[SCRAPE_AND_STORE_JOBS_ORM] Job scraping process completed. Inserted jobs {inserted_jobs_counter} new jobs.")

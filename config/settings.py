@@ -12,11 +12,11 @@ DATA_DIR = os.path.join(BASE_DIR, 'data')
 LOGGING_DIR = os.path.join(BASE_DIR, "logs")
 os.makedirs(LOGGING_DIR, exist_ok=True)  # Ensure logs directory exists
 
+## Moved Backend Database settings to the settings.py file in /backend
+
 # Database Names
 DATABASES = {
-    "identifiers": os.path.join(DATA_DIR, "identifiers.db"),
     "jobs": os.path.join(DATA_DIR, "jobs.db"),
-    'employement_position_id': os.path.join(DATA_DIR, 'employement_position_id.db'),
     'job_ads_embeddings': DATA_DIR
 }
 

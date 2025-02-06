@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class JobScrapingConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'job_scraping'
+    name = 'backend.apps.job_scraping'

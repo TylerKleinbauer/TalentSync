@@ -1,10 +1,15 @@
 import sqlite3
-from config.settings import DATABASES
 import requests
-from urllib.parse import urlparse
 import logging
+from urllib.parse import urlparse
+
+from config.settings import DATABASES
+from backend.settings import JOB_ADS_EMBEDDINGS_PATH
+
 from langchain_chroma import Chroma
 from langchain_openai import OpenAIEmbeddings
+
+from .models import Job
 
 def get_ids_to_delete(sqlite_path=DATABASES['jobs']):
     """
@@ -122,7 +127,6 @@ def get_ids_to_delete(sqlite_path=DATABASES['jobs']):
     
     return ids_to_delete
 
-
 def clean_sqlite_database(sqlite_path=DATABASES['jobs'], ids_to_delete=[]):
     """
     Cleans the jobs database by identifying and deleting rows with invalid or unreachable URLs.
@@ -203,8 +207,6 @@ def clean_chroma_database(chroma_path=DATABASES['job_ads_embeddings'], ids_to_de
     logging.info(f'[CLEAN_CHROMA_DATABASE] Deleted {len(ids_to_delete)} entries from the Chroma database.')
     logging.info(f"[CLEAN_CHROMA_DATABASE] Chroma database cleanup complete.")
 
-
-
 def clean_databases(sqlite_path=DATABASES['jobs'], chroma_path=DATABASES['job_ads_embeddings']):
     """
     Cleans up both the SQLite and Chroma databases by removing invalid or unreachable job postings.
@@ -265,3 +267,148 @@ def clean_databases(sqlite_path=DATABASES['jobs'], chroma_path=DATABASES['job_ad
         logging.error(f"[CLEAN_DATABASES] CHROMA Database cleanup failed: {e}")
 
     logging.info(f"[CLEAN_DATABASES] SQLITE and CHROMA Database cleanup complete.")
+
+def get_ids_to_delete_orm():
+    """
+    Identify job IDs with invalid or unreachable URLs using Django ORM.
+
+    This function retrieves the job IDs and their associated external URLs
+    from the Job model. For each job, it checks whether the URL is valid.
+    If the URL is missing or invalid, it attempts to validate a fallback URL.
+    If both the original and fallback URLs are invalid or unreachable, the job ID
+    is marked for deletion.
+
+    Returns:
+        list: A list of job IDs corresponding to invalid or unreachable URLs.
+    """
+    import time
+    start_time = time.time()
+    logging.info("[GET_IDS_TO_DELETE_ORM] Starting URL validation using Django ORM.")
+
+    ids_to_delete = []
+    # Retrieve job id and externalUrl using Django ORM.
+    jobs = Job.objects.values_list("id", "externalUrl")
+    
+    for job_id, link in jobs:
+        try:
+            # If link is missing or doesn't have a valid scheme, try the fallback URL.
+            if not link or not urlparse(link).scheme:
+                logging.warning(f"[GET_IDS_TO_DELETE_ORM] Invalid URL for job ID: {job_id}, URL: {link}")
+                fallback = f"https://www.jobup.ch/en/jobs/detail/{job_id}/?source=vacancy_search"
+                try:
+                    response = requests.head(fallback, timeout=10)
+                    if response.status_code < 400:
+                        # Fallback URL is valid, so skip deletion.
+                        logging.info(f"[GET_IDS_TO_DELETE_ORM] Fallback URL is valid: ID={job_id}, URL={fallback}")
+                        continue
+                    else:
+                        ids_to_delete.append(job_id)
+                except requests.RequestException as e:
+                    logging.error(f"[GET_IDS_TO_DELETE_ORM] Error checking fallback URL: ID={job_id}, URL={fallback}, Error={e}")
+                    ids_to_delete.append(job_id)
+                continue  # Move on to the next job
+
+            # Validate the provided URL.
+            response = requests.head(link, timeout=10)
+            if response.status_code >= 400:
+                ids_to_delete.append(job_id)
+        except requests.exceptions.SSLError:
+            try:
+                # Retry with SSL verification disabled.
+                response = requests.head(link, timeout=10, verify=False)
+                if response.status_code >= 400:
+                    ids_to_delete.append(job_id)
+            except requests.RequestException as e:
+                logging.error(f"[GET_IDS_TO_DELETE_ORM] Error checking URL with verify=False: ID={job_id}, URL={link}, Error={e}")
+                ids_to_delete.append(job_id)
+        except requests.RequestException as e:
+            logging.error(f"[GET_IDS_TO_DELETE_ORM] Error checking URL: ID={job_id}, URL={link}, Error={e}")
+            ids_to_delete.append(job_id)
+    
+    elapsed_time = time.time() - start_time
+    logging.info(f"[GET_IDS_TO_DELETE_ORM] Found {len(ids_to_delete)} jobs with invalid URLs out of {len(jobs)}.")
+    logging.info(f"[GET_IDS_TO_DELETE_ORM] Ending links check. Duration: {elapsed_time:.2f} seconds.")
+    return ids_to_delete
+
+def clean_chroma_database_orm(chroma_path = JOB_ADS_EMBEDDINGS_PATH, ids_to_delete = []):
+    """
+    Delete vector store entries in Chroma corresponding to the provided job IDs.
+
+    Args:
+        chroma_path (str): The persistent directory for the Chroma vector store.
+        ids_to_delete (list): A list of job IDs whose embeddings should be removed.
+
+    Returns:
+        None
+    """
+    logging.info("[CLEAN_CHROMA_DATABASE_ORM] Starting Chroma vector store cleanup.")
+    if not ids_to_delete:
+        logging.info("[CLEAN_CHROMA_DATABASE_ORM] No IDs to delete. Skipping cleanup.")
+        return
+
+    embeddings = OpenAIEmbeddings(model="text-embedding-3-small")
+    vector_store = Chroma(
+        collection_name="job_ads_embeddings",
+        embedding_function=embeddings,
+        persist_directory=chroma_path,
+    )
+
+    for job_id in ids_to_delete:
+        try:
+            vector_store.delete(job_id)
+            logging.info(f"[CLEAN_CHROMA_DATABASE_ORM] Deleted document with ID: {job_id} from Chroma.")
+        except Exception as e:
+            logging.error(f"[CLEAN_CHROMA_DATABASE_ORM] Error deleting document {job_id} from Chroma: {e}")
+    
+    logging.info(f"[CLEAN_CHROMA_DATABASE_ORM] Completed cleaning Chroma with {len(ids_to_delete)} deletions.")
+
+def clean_databases_orm(chroma_path):
+    """
+    Clean up both the Job database (using Django ORM) and the Chroma vector store
+    by removing job postings with invalid or unreachable URLs.
+
+    This function performs the following steps:
+      1. Retrieve job IDs with invalid URLs using `get_ids_to_delete_orm()`.
+      2. Delete those job entries from the Django-managed database.
+      3. Remove the corresponding documents from the Chroma vector store.
+
+    Args:
+        chroma_path (str): The persistent directory for the Chroma vector store.
+
+    Returns:
+        None
+    """
+    logging.info("[CLEAN_DATABASES_ORM] Starting cleanup of Job database and Chroma vector store.")
+
+    # Retrieve invalid job IDs.
+    ids_to_delete = get_ids_to_delete_orm()
+    
+    if ids_to_delete:
+        # Delete job entries using Django ORM.
+        deleted_count, _ = Job.objects.filter(id__in=ids_to_delete).delete()
+        logging.info(f"[CLEAN_DATABASES_ORM] Deleted {deleted_count} Job entries from the database.")
+    else:
+        logging.info("[CLEAN_DATABASES_ORM] No Job entries to delete from the database.")
+
+    # Clean the Chroma vector store.
+    clean_chroma_database_orm(chroma_path, ids_to_delete)
+    
+    logging.info("[CLEAN_DATABASES_ORM] Completed cleanup of Job database and Chroma vector store.")
+
+# Function that only cleans the Django database using ORM,
+
+def clean_jobs_orm():
+    """
+    Delete Job entries with invalid or unreachable URLs from the Django database.
+
+    Returns:
+        int: The number of job entries deleted.
+    """
+    ids_to_delete = get_ids_to_delete_orm()
+    if ids_to_delete:
+        deleted_count, _ = Job.objects.filter(id__in=ids_to_delete).delete()
+        logging.info(f"[CLEAN_JOBS_ORM] Deleted {deleted_count} Job entries from the database.")
+        return deleted_count
+    else:
+        logging.info("[CLEAN_JOBS_ORM] No Job entries to delete.")
+        return 0

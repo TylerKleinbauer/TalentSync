@@ -50,3 +50,309 @@ Try filtering complex metadata from the document using langchain_community.vecto
 2025-02-03 20:35:43,444 - ERROR - [GET_IDS_TO_DELETE] Error checking original URL: ID=e7d317c1-7f5a-4589-a668-64624fcdb524, URL=https://jobs.moveup.ch/Job/40290, Error=HTTPSConnectionPool(host='jobs.moveup.ch', port=443): Max retries exceeded with url: /Job/40290 (Caused by NameResolutionError("<urllib3.connection.HTTPSConnection object at 0x0000021737E7D490>: Failed to resolve 'jobs.moveup.ch' ([Errno 11004] getaddrinfo failed)"))
 2025-02-04 17:46:31,134 - ERROR - [GET_IDS_TO_DELETE] Error checking original URL: ID=d232c2ef-7451-4232-9748-2ef587e59934, URL=https://jobdetails.nestle.com/job-invite/329853/, Error=('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
 2025-02-04 17:53:17,486 - ERROR - [GET_IDS_TO_DELETE] Error checking original URL: ID=ed24fbe5-a141-42b1-95ae-29fcd919523d, URL=https://jobs.bcv.ch/job/Facility-Manager-Technique/30470-fr_FR, Error=('Connection aborted.', ConnectionResetError(10054, 'An existing connection was forcibly closed by the remote host', None, 10054, None))
+2025-02-05 21:22:27,554 - ERROR - [GET_IDS_TO_DELETE] Error checking original URL: ID=10ae91fa-6842-4d26-876a-6a882bd43b2e, URL=https://emploi.lasource.ch/?page=advertisement_display&id=627, Error=HTTPSConnectionPool(host='emploi.lasource.ch', port=443): Read timed out. (read timeout=10)
+2025-02-05 21:36:46,259 - ERROR - [SCRAPE_AND_STORE_JOBS] Error processing job link https://www.jobup.ch/en/jobs/detail/888a3e96-1e6d-459c-8114-36677e03da41/: 'NoneType' object is not iterable
+2025-02-05 21:37:12,036 - ERROR - [SCRAPE_AND_STORE_JOBS] Error processing job link https://www.jobup.ch/en/jobs/detail/82f43e36-65fd-408d-be01-28870df2c7d7/: 'NoneType' object is not iterable
+2025-02-05 21:37:19,393 - ERROR - [SCRAPE_AND_STORE_JOBS] Error processing job link https://www.jobup.ch/en/jobs/detail/c3ae3411-a003-4bd4-9fb8-6aa9b7cb71b8/: 'NoneType' object is not iterable
+2025-02-05 21:37:19,872 - ERROR - [SCRAPE_AND_STORE_JOBS] Error processing job link https://www.jobup.ch/en/jobs/detail/d6f21ef2-392b-45a6-9f78-e020ce57058a/: 'NoneType' object is not iterable
+2025-02-05 21:37:45,804 - ERROR - [SCRAPE_AND_STORE_JOBS] Error processing job link https://www.jobup.ch/en/jobs/detail/2c593060-54f3-4018-8ee5-bbc0d13c9e9d/: 'NoneType' object is not iterable
+2025-02-05 21:37:46,979 - ERROR - [SCRAPE_AND_STORE_JOBS] Error processing job link https://www.jobup.ch/en/jobs/detail/c4ff13ae-3611-4f7d-8bbd-26bd7de68246/: 'NoneType' object is not iterable
+2025-02-05 21:41:47,618 - ERROR - [SCRAPE_AND_STORE_JOBS] Error processing job link https://www.jobup.ch/en/jobs/detail/bf0329da-1446-4629-92e9-d6f1cad4647f/: 'NoneType' object is not iterable
+2025-02-05 21:42:01,752 - ERROR - [SCRAPE_AND_STORE_JOBS] Error processing job link https://www.jobup.ch/en/jobs/detail/d8d6bca2-189d-4b47-8163-3d9cb1d9f916/: 'NoneType' object is not iterable
+2025-02-06 13:31:57,785 - ERROR - [GET_IDS_TO_DELETE] Error checking original URL: ID=2b285262-f528-4a18-8447-d24a04a00966, URL=https://www2.solique.ch/cgi-bin/WebObjects/UNUserInterface.woa/wa/getSinglePublicationData?publicationId=3726495, Error=HTTPSConnectionPool(host='www2.solique.ch', port=443): Read timed out. (read timeout=10)
+2025-02-06 13:32:55,444 - ERROR - [GET_IDS_TO_DELETE] Error checking original URL: ID=35067776-0c20-41d2-bdf5-002799fef17a, URL=https://www2.solique.ch/cgi-bin/WebObjects/UNUserInterface.woa/wa/getSinglePublicationData?publicationId=3728836, Error=HTTPSConnectionPool(host='www2.solique.ch', port=443): Read timed out. (read timeout=10)
+2025-02-06 13:33:06,484 - ERROR - [GET_IDS_TO_DELETE] Error checking original URL: ID=c956ad6f-9133-427b-bc3d-0bdb41c5d91f, URL=https://www2.solique.ch/cgi-bin/WebObjects/UNUserInterface.woa/wa/getSinglePublicationData?publicationId=3728622, Error=HTTPSConnectionPool(host='www2.solique.ch', port=443): Read timed out. (read timeout=10)
+2025-02-06 13:37:13,390 - ERROR - [GET_IDS_TO_DELETE] Error checking original URL: ID=1d636a10-e543-4b9d-87c0-ceadd0241b17, URL=https://emploi.lasource.ch/?page=advertisement_display&id=577, Error=HTTPSConnectionPool(host='emploi.lasource.ch', port=443): Read timed out. (read timeout=10)
+2025-02-06 13:39:29,933 - ERROR - [GET_IDS_TO_DELETE] Error checking original URL: ID=84589aec-aa0c-41f6-94fa-faf5b00d74cf, URL=https://emploi.lasource.ch/?page=advertisement_display&id=630, Error=HTTPSConnectionPool(host='emploi.lasource.ch', port=443): Read timed out. (read timeout=10)
+2025-02-06 13:47:12,494 - ERROR - [GET_JOB_INFO] Non-200 status code received. code=410, link=https://www.jobup.ch/en/jobs/detail/e4215c9a-416a-4850-8570-c72f823a8c80/
+2025-02-06 13:56:59,677 - ERROR - [SCRAPE_AND_STORE_JOBS] Error processing job link https://www.jobup.ch/en/jobs/detail/c3ae3411-a003-4bd4-9fb8-6aa9b7cb71b8/: 'NoneType' object is not iterable
+2025-02-06 13:57:16,439 - ERROR - [SCRAPE_AND_STORE_JOBS] Error processing job link https://www.jobup.ch/en/jobs/detail/2c593060-54f3-4018-8ee5-bbc0d13c9e9d/: 'NoneType' object is not iterable
+2025-02-06 13:57:17,371 - ERROR - [SCRAPE_AND_STORE_JOBS] Error processing job link https://www.jobup.ch/en/jobs/detail/c4ff13ae-3611-4f7d-8bbd-26bd7de68246/: 'NoneType' object is not iterable
+2025-02-06 14:01:13,982 - ERROR - [SCRAPE_AND_STORE_JOBS] Error processing job link https://www.jobup.ch/en/jobs/detail/bf0329da-1446-4629-92e9-d6f1cad4647f/: 'NoneType' object is not iterable
+2025-02-06 14:01:34,000 - ERROR - [SCRAPE_AND_STORE_JOBS] Error processing job link https://www.jobup.ch/en/jobs/detail/d8d6bca2-189d-4b47-8163-3d9cb1d9f916/: 'NoneType' object is not iterable
+2025-02-06 14:01:38,864 - ERROR - [SCRAPE_AND_STORE_JOBS] Error processing job link https://www.jobup.ch/en/jobs/detail/d8d6bca2-189d-4b47-8163-3d9cb1d9f916/: 'NoneType' object is not iterable
+2025-02-06 16:43:01,903 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job b3a49522-60e1-4d31-9adc-c8a499e6041f: Field 'industry' expected a number but got ''.
+2025-02-06 16:43:02,027 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/b3a49522-60e1-4d31-9adc-c8a499e6041f/: object of type 'int' has no len()
+2025-02-06 16:43:02,547 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/97d956bf-5807-42b0-a149-703b6916be88/: object of type 'int' has no len()
+2025-02-06 16:43:03,171 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job f8c2c8d8-eb85-4bda-ad14-222cbd674b66: Field 'industry' expected a number but got ''.
+2025-02-06 16:43:03,324 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/f8c2c8d8-eb85-4bda-ad14-222cbd674b66/: object of type 'int' has no len()
+2025-02-06 16:43:04,061 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/475fada3-517f-480d-a1a4-230e661c9338/: object of type 'int' has no len()
+2025-02-06 16:43:05,540 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/ab55c022-dd96-412f-af4d-9822a4217ca0/: object of type 'int' has no len()
+2025-02-06 16:43:06,137 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/44f5e761-2df3-414a-aaeb-e34dfaa864c2/: object of type 'int' has no len()
+2025-02-06 16:43:06,775 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/f2f2410e-0ef9-46fe-8f18-4662ece82ac1/: object of type 'int' has no len()
+2025-02-06 16:43:07,191 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/c30ac28c-d0ca-472d-9217-4bd976e3d76f/: object of type 'int' has no len()
+2025-02-06 16:43:07,672 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/22bd7ac8-bceb-491c-8831-aaed0fec1098/: object of type 'int' has no len()
+2025-02-06 16:43:08,342 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/511229ec-8097-4b0a-8f3c-5bf8da9f8572/: object of type 'int' has no len()
+2025-02-06 16:43:09,029 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/44f02e26-3d42-473f-902b-a36bf6fa4581/: object of type 'int' has no len()
+2025-02-06 16:43:09,603 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/95decbf8-27be-4af2-8630-dec1f27aace8/: object of type 'int' has no len()
+2025-02-06 16:43:10,027 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/977c2685-1a11-4772-b612-9300db8db699/: object of type 'int' has no len()
+2025-02-06 16:43:10,642 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/7ea13fa8-7f8d-4ef1-8700-ef9e54b0e8cc/: object of type 'int' has no len()
+2025-02-06 16:43:11,110 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/ae3af718-9014-4356-af7c-8688f6e381bb/: object of type 'int' has no len()
+2025-02-06 16:43:11,676 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/e38e3bfa-5612-44ff-8d21-fb680286c66f/: object of type 'int' has no len()
+2025-02-06 16:43:12,229 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/ecfbf57e-ef58-4248-bb4e-65d428b85f70/: object of type 'int' has no len()
+2025-02-06 16:43:12,611 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/21361534-20e8-4b02-81a5-4c5a0f97f8c6/: object of type 'int' has no len()
+2025-02-06 16:43:13,277 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/4b679863-f3dc-4fbe-abf1-29ae92141b2b/: object of type 'int' has no len()
+2025-02-06 16:43:13,765 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/2704504f-b19f-4873-9fe1-931fd8d83549/: object of type 'int' has no len()
+2025-02-06 16:43:14,449 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job b3a49522-60e1-4d31-9adc-c8a499e6041f: Field 'industry' expected a number but got ''.
+2025-02-06 16:43:14,562 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/b3a49522-60e1-4d31-9adc-c8a499e6041f/: object of type 'int' has no len()
+2025-02-06 16:43:21,249 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/ea741d93-c0a7-4c7f-8427-91737c89f75e/: object of type 'int' has no len()
+2025-02-06 16:43:21,911 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/14eec129-cc60-4305-856e-7b40d8b3ab9c/: object of type 'int' has no len()
+2025-02-06 16:43:22,462 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/c0b55a6e-2ad6-4f66-8937-0ce2dc468e43/: object of type 'int' has no len()
+2025-02-06 16:43:23,068 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/cebc9604-3ac5-4692-97b1-bf5c7e02750f/: object of type 'int' has no len()
+2025-02-06 16:43:23,562 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/8597db76-b6f6-4507-a05b-c5ba2485b708/: object of type 'int' has no len()
+2025-02-06 16:43:23,992 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/3138f4cc-9f60-4e4a-b1c2-3b7b8129f35f/: object of type 'int' has no len()
+2025-02-06 16:43:24,540 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/26ddb1a4-fcfd-4d88-ad21-4f582df4b2be/: object of type 'int' has no len()
+2025-02-06 16:43:25,066 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/820cf5b5-9a20-4b44-ad49-58f9873eb5b9/: object of type 'int' has no len()
+2025-02-06 16:43:25,490 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/318b38ea-d5d0-46a0-a35f-268c328fb015/: object of type 'int' has no len()
+2025-02-06 16:43:26,155 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/b14684a3-7b11-4221-90ae-f1b11c6f6c3c/: object of type 'int' has no len()
+2025-02-06 16:43:26,603 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/c753d649-3cd5-4922-9b5f-c6f9d268b586/: object of type 'int' has no len()
+2025-02-06 16:43:27,200 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/e814f69d-3dcb-4271-8e80-954c7ecf6d84/: object of type 'int' has no len()
+2025-02-06 16:43:27,656 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/cc9f13ab-b0d5-4d2e-945b-a61e68b2e445/: object of type 'int' has no len()
+2025-02-06 16:43:28,325 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/a7695b84-92b9-4b33-98fa-cecbc8273c0f/: object of type 'int' has no len()
+2025-02-06 16:43:28,861 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/affb7881-f5c9-4ad4-80bf-e1cc0d83ab86/: object of type 'int' has no len()
+2025-02-06 16:43:29,361 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/3eff3d3e-537a-4c9e-a335-8268d5a98637/: object of type 'int' has no len()
+2025-02-06 16:43:29,937 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/89ce156a-88bb-497b-a103-c5771b24af66/: object of type 'int' has no len()
+2025-02-06 16:43:30,306 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 6b80da6d-a344-44de-b86b-24b96bf5a50b: Field 'industry' expected a number but got ''.
+2025-02-06 16:43:30,517 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/6b80da6d-a344-44de-b86b-24b96bf5a50b/: object of type 'int' has no len()
+2025-02-06 16:43:31,007 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/e48af730-5d1c-4eb7-967f-51f06d17c680/: object of type 'int' has no len()
+2025-02-06 16:43:31,665 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/3a22b4e7-8737-4adb-8a12-31eda69385c6/: object of type 'int' has no len()
+2025-02-06 16:43:32,315 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/ea741d93-c0a7-4c7f-8427-91737c89f75e/: object of type 'int' has no len()
+2025-02-06 16:43:38,245 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/bf68d6b8-802b-464b-a173-3ab67c9d80ea/: object of type 'int' has no len()
+2025-02-06 16:43:38,711 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/390f5efa-4817-461f-8849-ddf6a31d4326/: object of type 'int' has no len()
+2025-02-06 16:43:39,303 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/b040b2f5-d02f-405e-99d6-d716030663e4/: object of type 'int' has no len()
+2025-02-06 16:43:39,751 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/be806e51-b514-4518-866e-22db6a16bd41/: object of type 'int' has no len()
+2025-02-06 16:43:40,286 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/a2276a07-53a6-4557-ae0d-20018a9c7413/: object of type 'int' has no len()
+2025-02-06 16:43:41,050 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/5a7be865-832b-4191-bf8c-39813999b24b/: object of type 'int' has no len()
+2025-02-06 16:43:41,781 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/4f978351-61a2-4ad9-a24d-d7af5033cac0/: object of type 'int' has no len()
+2025-02-06 16:43:42,400 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/50c8dc37-1034-465c-b03f-e419ff53f9a8/: object of type 'int' has no len()
+2025-02-06 16:43:42,782 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/aa2a8c08-81ca-4a43-8472-22732ead3228/: object of type 'int' has no len()
+2025-02-06 16:43:43,515 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/ced77dda-6ebd-40b7-9b56-e43c991ec557/: object of type 'int' has no len()
+2025-02-06 16:43:44,467 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/ecb6a554-17e6-4d14-a975-638602de7129/: object of type 'int' has no len()
+2025-02-06 16:43:44,834 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/d654ea75-7c5a-4f5b-b26d-ea975d012de5/: object of type 'int' has no len()
+2025-02-06 16:43:45,318 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/8f571e7a-86cc-4f4e-baa0-6e52682dfb47/: object of type 'int' has no len()
+2025-02-06 16:43:45,936 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/9fe374b7-4724-4d48-95ba-4cef5400120d/: object of type 'int' has no len()
+2025-02-06 16:43:46,455 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/7a84954d-2074-4f88-82a1-f901ea5edecd/: object of type 'int' has no len()
+2025-02-06 16:43:47,029 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/979b8ade-1c33-4d09-ac90-a0135b2f12a4/: object of type 'int' has no len()
+2025-02-06 16:43:47,471 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 934c759a-f04b-45b6-9d21-767038df8ec3: Field 'industry' expected a number but got ''.
+2025-02-06 16:43:47,597 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/934c759a-f04b-45b6-9d21-767038df8ec3/: object of type 'int' has no len()
+2025-02-06 16:43:48,079 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/5115bf30-fded-4880-a5cd-4f0e2c31a7d9/: object of type 'int' has no len()
+2025-02-06 16:43:48,484 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/c0a29b80-ed95-45a8-92cc-edcfa614f0d5/: object of type 'int' has no len()
+2025-02-06 16:43:48,946 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/91745afd-67d8-4f92-a61e-8aedb0da6533/: object of type 'int' has no len()
+2025-02-06 16:43:49,383 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/bf68d6b8-802b-464b-a173-3ab67c9d80ea/: object of type 'int' has no len()
+2025-02-06 16:43:55,308 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/fe90dc6b-0de6-4105-86b3-2b1445c62084/: object of type 'int' has no len()
+2025-02-06 16:43:55,899 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/20135625-629d-4e6e-a888-37166d90b0ae/: object of type 'int' has no len()
+2025-02-06 16:43:56,308 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/c05c8750-f890-42d7-8b1d-9692312f70f9/: object of type 'int' has no len()
+2025-02-06 16:43:56,769 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/45efceee-bdab-4dc7-a725-0098fc2d7d4b/: object of type 'int' has no len()
+2025-02-06 16:43:57,167 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/f0cc4b41-4790-42b3-af30-5a0d8c2a371d/: object of type 'int' has no len()
+2025-02-06 16:43:57,561 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/9dd5cfda-0a77-40db-8d28-7b2249fca1c8/: object of type 'int' has no len()
+2025-02-06 16:43:58,004 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/62d958e0-609b-4788-9e84-bf534f8beefe/: object of type 'int' has no len()
+2025-02-06 16:43:58,449 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/e7f2e955-f450-46ee-99a7-e82c414c436a/: object of type 'int' has no len()
+2025-02-06 16:43:59,031 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/62dd1333-05a4-495e-9e49-c23f2e0ca86d/: object of type 'int' has no len()
+2025-02-06 16:43:59,428 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/3fe6768a-38c8-4781-aa24-4089ec0631e0/: object of type 'int' has no len()
+2025-02-06 16:44:00,017 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/76ba06d9-60b0-4ebf-abcf-d4fc06bfee16/: object of type 'int' has no len()
+2025-02-06 16:44:00,950 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/d0d894c5-c3be-42fc-9c0e-c0cac78c1f55/: object of type 'int' has no len()
+2025-02-06 16:44:01,523 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/76ffb28a-8da7-40ee-a892-023cfdec85f8/: object of type 'int' has no len()
+2025-02-06 16:44:02,023 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/ecdf4c07-e035-4c5c-8b98-9ec5b394d9b8/: object of type 'int' has no len()
+2025-02-06 16:44:02,405 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/414eee49-e6a7-4da5-8ee0-02c8a7611f88/: object of type 'int' has no len()
+2025-02-06 16:44:02,783 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/1bc07eb1-0a90-4582-8dd7-f7d4e16cdde0/: object of type 'int' has no len()
+2025-02-06 16:44:03,215 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/1440d642-59c3-4cbf-bb22-69e4f83c4f1e/: object of type 'int' has no len()
+2025-02-06 16:44:03,603 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/7bedafe6-84c8-4fb6-852c-c072a3f018ec/: object of type 'int' has no len()
+2025-02-06 16:44:04,035 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/7e31857d-067d-4a76-b599-716e2d95752f/: object of type 'int' has no len()
+2025-02-06 16:44:04,372 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/b5197af2-b6ff-4c54-8764-768c8669c1dd/: object of type 'int' has no len()
+2025-02-06 16:44:04,771 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/fe90dc6b-0de6-4105-86b3-2b1445c62084/: object of type 'int' has no len()
+2025-02-06 16:44:11,047 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/81edd814-87ee-447a-9fe8-2a0ef2c60565/: object of type 'int' has no len()
+2025-02-06 16:44:11,561 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 20595734-4f3a-4a9a-a9c4-1e22393ee92c: Field 'industry' expected a number but got ''.
+2025-02-06 16:44:11,705 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/20595734-4f3a-4a9a-a9c4-1e22393ee92c/: object of type 'int' has no len()
+2025-02-06 16:44:12,206 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/95800222-6fcd-4364-b7eb-134b5794b615/: object of type 'int' has no len()
+2025-02-06 16:44:12,604 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/b7b157c2-1822-4e99-9ca8-3e326afb4593/: object of type 'int' has no len()
+2025-02-06 16:44:13,114 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/1193cc11-837c-4001-80b6-01f6d89e0097/: object of type 'int' has no len()
+2025-02-06 16:44:13,590 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/1606424c-8c3e-4196-a230-dce34e9e3119/: object of type 'int' has no len()
+2025-02-06 16:44:13,993 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/747f84a3-018f-47af-9e4a-4906df218097/: object of type 'int' has no len()
+2025-02-06 16:44:14,513 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/01a5245e-60f3-4c47-9c00-f90bc5bff67e/: object of type 'int' has no len()
+2025-02-06 16:44:14,983 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/eeae27fe-571d-43f9-aed5-b6b98c312c4b/: object of type 'int' has no len()
+2025-02-06 16:44:15,795 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/2fb07020-aef4-4399-aef0-cccf551d6811/: object of type 'int' has no len()
+2025-02-06 16:44:16,283 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/7d82ab90-754e-4240-a25c-bba987315a4f/: object of type 'int' has no len()
+2025-02-06 16:44:17,026 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/331a08c9-4a4f-4016-8110-f806ccf13c55/: object of type 'int' has no len()
+2025-02-06 16:44:17,720 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/42eb67aa-109a-4e2b-a08c-146dc9d42840/: object of type 'int' has no len()
+2025-02-06 16:44:18,247 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/a92277dc-8ab0-4017-b2c8-4578d0239a0b/: object of type 'int' has no len()
+2025-02-06 16:44:19,019 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/0251ea9d-09ef-419d-b112-fa60064424f5/: object of type 'int' has no len()
+2025-02-06 16:44:19,444 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/0abae7c6-93aa-43d8-94ce-275a360f1b19/: object of type 'int' has no len()
+2025-02-06 16:44:19,840 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/a3baa512-c63b-4d34-afb8-cccbbf58c7aa/: object of type 'int' has no len()
+2025-02-06 16:44:20,246 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/574e09b8-ec5d-4040-be50-70a758eda9ff/: object of type 'int' has no len()
+2025-02-06 16:44:20,696 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/bcc1ecf0-00c1-46ff-bb0a-840d5e8883e3/: object of type 'int' has no len()
+2025-02-06 16:44:21,033 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/02ce0268-0068-465c-8b1e-2a23f717e35e/: object of type 'int' has no len()
+2025-02-06 16:44:21,489 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/81edd814-87ee-447a-9fe8-2a0ef2c60565/: object of type 'int' has no len()
+2025-02-06 16:44:27,704 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/30d8ee2a-dcc3-42a4-8ab9-5abba03c236f/: object of type 'int' has no len()
+2025-02-06 16:44:28,283 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/b4a063fa-ccdf-4a0e-b8e2-211fe6e7fa05/: object of type 'int' has no len()
+2025-02-06 16:44:28,784 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 1f4db2b9-3424-43b7-aa33-121ce18e6ee0: Field 'industry' expected a number but got ''.
+2025-02-06 16:44:28,934 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/1f4db2b9-3424-43b7-aa33-121ce18e6ee0/: object of type 'int' has no len()
+2025-02-06 16:44:29,415 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/7eb509bb-8c72-48a1-8dcb-9e7f3c68394d/: object of type 'int' has no len()
+2025-02-06 16:44:30,108 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/b7e3f82f-d771-4d91-97ef-320f8367b6b2/: object of type 'int' has no len()
+2025-02-06 16:44:30,655 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/4a67c7a0-de32-426b-9a60-609969fbf04b/: object of type 'int' has no len()
+2025-02-06 16:44:31,158 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/22e3e81d-d3da-4778-9760-7862dc1664f4/: object of type 'int' has no len()
+2025-02-06 16:44:31,557 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/029a111d-eea4-4392-9d24-92c2b87ad554/: object of type 'int' has no len()
+2025-02-06 16:44:32,119 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/3327a03d-1725-40cd-83b4-dcee3a481c9c/: object of type 'int' has no len()
+2025-02-06 16:44:32,758 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/2dd314e6-e7e8-49f1-a832-630eb1654d6c/: object of type 'int' has no len()
+2025-02-06 16:44:33,323 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/3fc51319-a3fe-4a90-8eca-0a72693a699f/: object of type 'int' has no len()
+2025-02-06 16:44:33,830 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/16c97701-1b58-42d4-9f02-9a19972b5f1b/: object of type 'int' has no len()
+2025-02-06 16:44:34,205 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/b5e60bce-0ca1-4c0c-8338-7da21865294f/: object of type 'int' has no len()
+2025-02-06 16:44:34,760 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job ad801306-db86-4fac-997a-52626ad9f75c: Field 'industry' expected a number but got ''.
+2025-02-06 16:44:34,892 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/ad801306-db86-4fac-997a-52626ad9f75c/: object of type 'int' has no len()
+2025-02-06 16:44:35,357 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/223d872d-3b7e-468a-8baa-11c4567c017e/: object of type 'int' has no len()
+2025-02-06 16:44:35,886 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/b9740871-97b2-4467-ad55-52ee6b85c0d6/: object of type 'int' has no len()
+2025-02-06 16:44:36,451 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/0e81bb11-402e-44c7-bde1-bc94248d49f7/: object of type 'int' has no len()
+2025-02-06 16:44:36,896 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/8ca54dca-2a6c-4ff9-ae11-e6b8cd3d8799/: object of type 'int' has no len()
+2025-02-06 16:44:37,485 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/1a10bdae-ed9a-4a16-ba3d-418f6d15f83a/: object of type 'int' has no len()
+2025-02-06 16:44:37,940 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/2fc2fe2e-1c0f-4a60-b947-0710aa226f7e/: object of type 'int' has no len()
+2025-02-06 16:44:38,546 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/30d8ee2a-dcc3-42a4-8ab9-5abba03c236f/: object of type 'int' has no len()
+2025-02-06 16:44:44,853 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/d017ca6a-f3fa-4504-9b7b-4c53e3a4cbe2/: object of type 'int' has no len()
+2025-02-06 17:23:18,946 - ERROR - [GET_IDS_TO_DELETE_ORM] Error checking URL: ID=49d6b6dc-5e41-4183-bdec-49d5e5edb273, URL=https://jobs.lever.co/sonarsource/b3fab326-a465-4968-900f-1a24ab6342f2?lever-source=jobup, Error=HTTPSConnectionPool(host='jobs.lever.co', port=443): Read timed out. (read timeout=10)
+2025-02-06 17:43:44,064 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job b3a49522-60e1-4d31-9adc-c8a499e6041f: Field 'industry' expected a number but got ''.
+2025-02-06 17:43:45,309 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job f8c2c8d8-eb85-4bda-ad14-222cbd674b66: Field 'industry' expected a number but got ''.
+2025-02-06 17:44:11,048 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 6b80da6d-a344-44de-b86b-24b96bf5a50b: Field 'industry' expected a number but got ''.
+2025-02-06 17:44:23,922 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 934c759a-f04b-45b6-9d21-767038df8ec3: Field 'industry' expected a number but got ''.
+2025-02-06 17:44:40,286 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 20595734-4f3a-4a9a-a9c4-1e22393ee92c: Field 'industry' expected a number but got ''.
+2025-02-06 17:44:54,611 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 1f4db2b9-3424-43b7-aa33-121ce18e6ee0: Field 'industry' expected a number but got ''.
+2025-02-06 17:45:05,464 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job ad801306-db86-4fac-997a-52626ad9f75c: Field 'industry' expected a number but got ''.
+2025-02-06 17:45:21,178 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 872255a7-3285-4912-830e-8a7905417f7c: Field 'industry' expected a number but got ''.
+2025-02-06 17:45:30,795 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 679e9052-2466-4f7f-a1f2-6f49ebc5579b: Field 'industry' expected a number but got ''.
+2025-02-06 17:45:33,514 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 680142fc-41e8-46b0-8793-20829384014a: Field 'industry' expected a number but got ''.
+2025-02-06 17:45:34,036 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 877300bc-4212-4939-919b-acb26cc28274: Field 'industry' expected a number but got ''.
+2025-02-06 17:45:37,700 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 16458651-33ca-4cc4-968e-25657f825c51: Field 'industry' expected a number but got ''.
+2025-02-06 17:45:45,085 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 8df99f7f-81fe-4580-a009-ec097866b278: Field 'industry' expected a number but got ''.
+2025-02-06 17:45:46,659 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 2a5499c0-aafc-4ea8-a03c-926c41e6711d: Field 'industry' expected a number but got ''.
+2025-02-06 17:46:45,441 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 58e0afe1-4a31-4afc-999a-a5705f7a4b23: Field 'industry' expected a number but got ''.
+2025-02-06 17:47:30,229 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job a86b9381-5b45-42b5-84b6-cbd6cacbdb09: Field 'industry' expected a number but got ''.
+2025-02-06 17:48:10,906 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job bb69b55d-7f1a-4b0d-913a-bdf7ea4c373b: Field 'industry' expected a number but got ''.
+2025-02-06 17:48:31,093 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 2dcdf8dd-d01c-4c7d-85c9-51d4fd45e75e: Field 'industry' expected a number but got ''.
+2025-02-06 17:48:36,076 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job f669ca16-3aa3-4f84-954e-debdb70c2010: Field 'industry' expected a number but got ''.
+2025-02-06 17:48:36,698 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 70ee1374-885d-4132-8867-a96de12f232f: Field 'industry' expected a number but got ''.
+2025-02-06 17:48:47,897 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 47ff5041-bd72-4535-b2b8-6a8988e61b91: Field 'industry' expected a number but got ''.
+2025-02-06 17:48:51,859 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 893a2590-9a9d-41a7-b013-c061fb044a91: Field 'industry' expected a number but got ''.
+2025-02-06 17:48:58,773 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 96d4507c-1819-4eb5-bfd1-e59af0b1e4ec: Field 'industry' expected a number but got ''.
+2025-02-06 17:49:05,060 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 65c192f5-64ca-4440-9c7e-0562b8daba0f: Field 'industry' expected a number but got ''.
+2025-02-06 17:49:15,009 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 55982f76-4032-4030-9c98-dc36b01cbd60: Field 'industry' expected a number but got ''.
+2025-02-06 17:49:17,330 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job b1f35bc1-104e-4c64-bd28-2e888e7c20bb: Field 'industry' expected a number but got ''.
+2025-02-06 17:49:57,264 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 58c9307f-d6be-4a54-b1bd-b707fecca979: Field 'industry' expected a number but got ''.
+2025-02-06 17:50:10,486 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 75ba8233-2810-499c-9170-deed5b50f6d2: Field 'industry' expected a number but got ''.
+2025-02-06 17:50:20,095 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job aec49f05-bb53-4da8-9e03-0836bbcfe827: Field 'industry' expected a number but got ''.
+2025-02-06 17:50:24,235 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job b7caefca-bf55-48ff-b1bf-20b37f90ccb5: Field 'industry' expected a number but got ''.
+2025-02-06 17:50:32,669 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job fae15d42-ad1b-496e-b9c1-9385a80fe285: Field 'industry' expected a number but got ''.
+2025-02-06 17:50:37,847 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 7b42cac0-76ca-4580-b293-4fcedc4c22b8: Field 'industry' expected a number but got ''.
+2025-02-06 17:50:50,428 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job afacb296-0961-47c3-b40b-bd5f8ee15ecb: Field 'industry' expected a number but got ''.
+2025-02-06 17:50:51,992 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 4a50324c-bf94-4976-b58b-adc872b0e63e: Field 'industry' expected a number but got ''.
+2025-02-06 17:51:00,972 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job a9533506-c6dc-498a-bcf4-8989a5695d86: Field 'industry' expected a number but got ''.
+2025-02-06 17:51:33,045 - ERROR - [GET_JOB_INFO] Non-200 status code received. code=410, link=https://www.jobup.ch/en/jobs/detail/e4215c9a-416a-4850-8570-c72f823a8c80/
+2025-02-06 17:51:34,128 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 86373a33-a82b-404b-adf2-63d0bc8e065c: Field 'industry' expected a number but got ''.
+2025-02-06 17:51:45,083 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 939651e8-b7fb-4611-99fa-fb2644e528fd: Field 'industry' expected a number but got ''.
+2025-02-06 17:51:58,921 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 26b3ba63-93d9-4de3-a8b2-429a5499b431: Field 'industry' expected a number but got ''.
+2025-02-06 17:52:40,428 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 0132119d-3734-464a-a5c3-75035ac16e16: Field 'industry' expected a number but got ''.
+2025-02-06 17:52:40,927 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job a7a40c33-17d3-4a9e-8aa4-ec42ade11555: Field 'industry' expected a number but got ''.
+2025-02-06 17:52:50,786 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job b0199310-7565-4623-87a3-03114d74a294: Field 'industry' expected a number but got ''.
+2025-02-06 17:52:52,772 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job b6f8e742-f2b7-4837-bb8f-8b92bbe27297: Field 'industry' expected a number but got ''.
+2025-02-06 17:52:54,918 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 95c7942f-8058-432d-8ba3-15c74a8757ea: Field 'industry' expected a number but got ''.
+2025-02-06 17:53:02,923 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 6b35d9f5-a168-42bf-b4fa-a58e5564cd8f: Field 'industry' expected a number but got ''.
+2025-02-06 17:53:03,759 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job b5bb54e5-d795-4342-8b4e-60fdd09052b1: Field 'industry' expected a number but got ''.
+2025-02-06 17:53:20,771 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 96434580-3516-4352-80a2-d03e558c75ce: Field 'industry' expected a number but got ''.
+2025-02-06 17:53:21,517 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job e17fce24-00b4-4df6-a201-13435d6cfca1: Field 'industry' expected a number but got ''.
+2025-02-06 17:53:43,433 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 269447ce-5468-4c49-a8c2-a0e360e2a152: Field 'industry' expected a number but got ''.
+2025-02-06 17:53:58,258 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 018238fb-26d5-4451-a34c-58f915589251: Field 'industry' expected a number but got ''.
+2025-02-06 17:54:25,968 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 753c2856-00ca-4a45-ac45-218fb6eb70ed: Field 'industry' expected a number but got ''.
+2025-02-06 17:54:31,079 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 7eb4a054-e237-4059-91a8-ce4420fe8be6: Field 'industry' expected a number but got ''.
+2025-02-06 17:54:31,579 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 6fdafbd8-b5ca-42a3-af6d-f7d63c48ac8e: Field 'industry' expected a number but got ''.
+2025-02-06 17:54:37,708 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job b10cfe6c-c5fb-4fd2-898c-5f3b90ee42a6: Field 'industry' expected a number but got ''.
+2025-02-06 17:54:40,722 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job d78d70dc-95b1-4d52-a685-3199ab318174: Field 'industry' expected a number but got ''.
+2025-02-06 17:54:42,573 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job f5e80466-8f6d-4f97-b019-6f8c98d4384d: Field 'industry' expected a number but got ''.
+2025-02-06 17:54:45,996 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job f9dfe807-5f05-4c09-9823-378cf9c58b28: Field 'industry' expected a number but got ''.
+2025-02-06 17:54:55,207 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 572c2e56-21a3-415a-bcc3-61b73c1cc60d: Field 'industry' expected a number but got ''.
+2025-02-06 17:54:57,362 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 143ac26b-df29-463c-a770-35e847575ce7: Field 'industry' expected a number but got ''.
+2025-02-06 17:55:21,375 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 4127f0be-d3b2-4271-a648-c9da13a46b7f: Field 'industry' expected a number but got ''.
+2025-02-06 17:55:26,247 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 3c4f075a-1970-424a-ad48-7979a0eb814c: Field 'industry' expected a number but got ''.
+2025-02-06 17:55:33,256 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job d705e749-30de-4b81-be95-d01ad893857b: Field 'industry' expected a number but got ''.
+2025-02-06 17:55:50,067 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 60877fa4-c2cd-4af7-a461-48d2192444c2: Field 'industry' expected a number but got ''.
+2025-02-06 17:56:04,129 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 900c436a-e84c-4086-9a35-6487d4066dbb: Field 'industry' expected a number but got ''.
+2025-02-06 17:56:05,394 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job c57df25b-2aa1-4099-ab2d-a863b3c02ea6: Field 'industry' expected a number but got ''.
+2025-02-06 17:57:05,410 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 3a70087c-3df4-468d-9373-bf66256a1537: Field 'industry' expected a number but got ''.
+2025-02-06 17:57:11,490 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 09cb7693-efe9-4b1e-9c03-7662348b6039: Field 'industry' expected a number but got ''.
+2025-02-06 17:57:27,782 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 7ddad0ec-b18f-4f63-b2fc-89f9fe28327c: Field 'industry' expected a number but got ''.
+2025-02-06 17:58:08,742 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job d1410d62-20d8-4e5d-9a57-9c0a6c3f9199: Field 'industry' expected a number but got ''.
+2025-02-06 17:58:16,157 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 94c9b0a5-a488-47b7-9246-1ab8965cb25e: Field 'industry' expected a number but got ''.
+2025-02-06 17:58:59,882 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 1ebbafe6-33b5-46e6-90e2-72ecffc79c43: Field 'industry' expected a number but got ''.
+2025-02-06 17:59:03,225 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job dfb39712-c5fd-4d92-9082-60e8e1338fbd: Field 'industry' expected a number but got ''.
+2025-02-06 17:59:04,310 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job f97a361a-d2a9-4179-905b-14aaa9f6e500: Field 'industry' expected a number but got ''.
+2025-02-06 18:00:06,755 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 38def8b0-4e5d-4c81-affc-f36e46174f24: Field 'industry' expected a number but got ''.
+2025-02-06 18:00:07,530 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job ff26f2f9-0f9b-4b5f-a346-a98e4beddb77: Field 'industry' expected a number but got ''.
+2025-02-06 18:00:08,061 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 64307689-c0f5-4127-9409-4763953efbaf: Field 'industry' expected a number but got ''.
+2025-02-06 18:00:09,263 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 834b5b98-2c8a-4226-8846-a163f544d49c: Field 'regionID' expected a number but got ''.
+2025-02-06 18:00:09,698 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 6a76e9d3-53c6-4ebc-814d-9a8bdcbbe946: Field 'regionID' expected a number but got ''.
+2025-02-06 18:00:10,234 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 60591b93-bf84-4f35-a4de-b0bfc43178c8: Field 'regionID' expected a number but got ''.
+2025-02-06 18:00:10,794 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 5dfbbbdc-43f8-49d3-95f7-d7433f686ee1: Field 'regionID' expected a number but got ''.
+2025-02-06 18:00:31,752 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 77cb382c-88a5-4433-b369-6acf43a03914: Field 'industry' expected a number but got ''.
+2025-02-06 18:00:32,301 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job e625418d-2925-4c8d-b3a5-2f6a6fb9be4b: Field 'industry' expected a number but got ''.
+2025-02-06 18:00:32,844 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job d27b5cc0-dd72-4d91-9da5-efd9b0cc8169: Field 'industry' expected a number but got ''.
+2025-02-06 18:00:33,441 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 346a4750-cc69-4e62-a224-0cd8cc43b7ad: Field 'industry' expected a number but got ''.
+2025-02-06 18:00:34,242 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 862411cb-24e4-4c1d-a19d-5aa25caf3ca8: Field 'regionID' expected a number but got ''.
+2025-02-06 18:00:34,685 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job da43466e-b0f8-4903-a170-114677de02af: Field 'regionID' expected a number but got ''.
+2025-02-06 18:00:35,136 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 6aa032bb-4b80-4adf-81e2-9888445e5626: Field 'regionID' expected a number but got ''.
+2025-02-06 18:00:49,164 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 98df7267-6b5a-4f85-9c62-7f11e8913206: Field 'regionID' expected a number but got ''.
+2025-02-06 18:00:49,963 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 26a3f1a2-5749-404e-a2ea-9453f01677f7: Field 'regionID' expected a number but got ''.
+2025-02-06 18:00:50,673 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 1b00400a-a6fd-42ed-86c4-8d1e09ddc218: Field 'regionID' expected a number but got ''.
+2025-02-06 18:01:04,076 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 35fc09b5-c487-45b7-9c57-ef0c3d96c32b: Field 'regionID' expected a number but got ''.
+2025-02-06 18:01:04,617 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 36557792-0538-4892-9ba3-9b2cdee7491c: Field 'regionID' expected a number but got ''.
+2025-02-06 18:01:05,050 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 4883ed65-7c81-45c1-8f16-421871788053: Field 'regionID' expected a number but got ''.
+2025-02-06 18:01:06,384 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 4c9b2155-ddc5-4180-9fc3-d11a4d814684: Field 'regionID' expected a number but got ''.
+2025-02-06 18:01:07,215 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job a2ecff5a-21dc-44cf-b742-e6ae8da88dbd: Field 'regionID' expected a number but got ''.
+2025-02-06 18:01:14,102 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 90ce7671-8dd0-4570-ba0a-e292120a57a1: Field 'regionID' expected a number but got ''.
+2025-02-06 18:01:16,932 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 13653f85-edf6-473b-879a-afad1104cacb: Field 'regionID' expected a number but got ''.
+2025-02-06 18:01:19,093 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/c3ae3411-a003-4bd4-9fb8-6aa9b7cb71b8/: 'NoneType' object is not iterable
+2025-02-06 18:01:19,721 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 5a445c2e-d638-4557-9512-c1b271dbc4a4: Field 'regionID' expected a number but got ''.
+2025-02-06 18:01:26,512 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 366c5f5b-30c7-44a9-bace-e468f44106c3: Field 'regionID' expected a number but got ''.
+2025-02-06 18:01:29,719 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job cfd01531-5f67-44d3-bc1c-2af714d25293: Field 'regionID' expected a number but got ''.
+2025-02-06 18:01:40,718 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 81d14c72-75fc-41b1-a44e-f4f5c5033e8d: Field 'regionID' expected a number but got ''.
+2025-02-06 18:01:42,103 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/2c593060-54f3-4018-8ee5-bbc0d13c9e9d/: 'NoneType' object is not iterable
+2025-02-06 18:01:42,865 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/c4ff13ae-3611-4f7d-8bbd-26bd7de68246/: 'NoneType' object is not iterable
+2025-02-06 18:01:43,857 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 5f06a8fc-4e9f-49d7-a71b-0c7e55f73047: Field 'regionID' expected a number but got ''.
+2025-02-06 18:01:44,539 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 6058a7d0-d620-4cfe-b7b5-9a3cb703e086: Field 'regionID' expected a number but got ''.
+2025-02-06 18:01:45,430 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job de3a73cf-d29b-4901-9b11-82a2040124b4: Field 'regionID' expected a number but got ''.
+2025-02-06 18:01:46,041 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 543e3167-0acb-41aa-a458-832d023411c5: Field 'regionID' expected a number but got ''.
+2025-02-06 18:01:47,678 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 2a94d2e5-9de3-4c8c-a819-795e875e86cd: Field 'regionID' expected a number but got ''.
+2025-02-06 18:01:54,566 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 2884c07c-3de0-44d1-b588-3acda71adaa1: Field 'regionID' expected a number but got ''.
+2025-02-06 18:02:11,033 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job cef400b5-9d21-4ba5-91fe-63077a8e640a: Field 'regionID' expected a number but got ''.
+2025-02-06 18:02:11,500 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 1461a49e-88e4-4492-81e2-957d032ce534: Field 'regionID' expected a number but got ''.
+2025-02-06 18:02:45,040 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job ef57d778-a2d8-4ac0-bff6-8d8dfb828726: Field 'industry' expected a number but got ''.
+2025-02-06 18:02:45,703 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 1c4c4a3b-cec8-4825-821d-a0cefa1cb4b9: Field 'industry' expected a number but got ''.
+2025-02-06 18:03:06,660 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job dd7280a0-5c26-4ac8-b826-c0d50712aa62: Field 'regionID' expected a number but got ''.
+2025-02-06 18:03:31,767 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 4792cafb-ca74-4b4b-81d9-222ceb24ddc2: Field 'regionID' expected a number but got ''.
+2025-02-06 18:03:32,707 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 05837532-4aae-4eb1-b451-1c65f114b570: Field 'regionID' expected a number but got ''.
+2025-02-06 18:03:34,014 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 7f93aa8e-2ab3-4bae-81d8-866be2c409de: Field 'regionID' expected a number but got ''.
+2025-02-06 18:03:34,533 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 7fba4850-4a44-4166-ae84-d858424576e9: Field 'regionID' expected a number but got ''.
+2025-02-06 18:03:35,602 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 5df94c14-7cf7-4b2d-8755-23c31a014ebc: Field 'regionID' expected a number but got ''.
+2025-02-06 18:03:36,265 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 044ed7b5-a522-4976-96dc-1c1ddb81ea00: Field 'regionID' expected a number but got ''.
+2025-02-06 18:03:36,813 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 679bd37f-8fae-461f-afad-70f81ac41ef6: Field 'regionID' expected a number but got ''.
+2025-02-06 18:03:37,347 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job d3952729-25d5-4a3c-a3aa-41c210406dd1: Field 'regionID' expected a number but got ''.
+2025-02-06 18:03:38,420 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 7d3c74ea-aea6-438a-a320-d0fe9515c36e: Field 'regionID' expected a number but got ''.
+2025-02-06 18:03:38,885 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job b420fa86-b153-4f01-acb2-a23a2abb3f19: Field 'regionID' expected a number but got ''.
+2025-02-06 18:03:39,434 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job da1272df-9063-4c47-9ed6-e6c1aca744ce: Field 'regionID' expected a number but got ''.
+2025-02-06 18:03:46,459 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 0919aebe-0618-4d3c-b46d-62aebb77118e: Field 'regionID' expected a number but got ''.
+2025-02-06 18:03:48,197 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job c4f56c8b-223c-479e-9431-9caa27691479: Field 'regionID' expected a number but got ''.
+2025-02-06 18:03:48,688 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 33b2b1c2-60a8-46b7-bd2d-d117bc4022ee: Field 'regionID' expected a number but got ''.
+2025-02-06 18:04:02,078 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 35cf2b5b-b366-4400-a526-feb1bea44b58: Field 'regionID' expected a number but got ''.
+2025-02-06 18:04:02,495 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 2038ab69-f153-4f6e-9262-0adb75f7c47e: Field 'regionID' expected a number but got ''.
+2025-02-06 18:04:04,893 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 4f3a0617-54e7-44ad-bbf4-fa4bb1278966: Field 'regionID' expected a number but got ''.
+2025-02-06 18:04:13,483 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 2d7bfff5-4d9c-4770-b7e6-3a60e83917bc: Field 'regionID' expected a number but got ''.
+2025-02-06 18:04:14,748 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 5f536e8b-7c99-448d-bd5f-0fd9b5759d02: Field 'regionID' expected a number but got ''.
+2025-02-06 18:04:17,386 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job a70e69a8-1ce8-4ec4-8972-2d70946711cf: Field 'regionID' expected a number but got ''.
+2025-02-06 18:04:27,537 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 45e244a0-e6bf-416f-b9bb-6bec5b26cda2: Field 'regionID' expected a number but got ''.
+2025-02-06 18:04:28,329 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 4f921ec7-15e5-474a-9975-d5db7a7b4d18: Field 'regionID' expected a number but got ''.
+2025-02-06 18:04:29,318 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 94e6cf45-cfd8-4157-b39b-2ba6880116ed: Field 'regionID' expected a number but got ''.
+2025-02-06 18:04:29,799 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job b9b036de-85e4-43b4-9fde-5ce9bcacf789: Field 'regionID' expected a number but got ''.
+2025-02-06 18:04:31,620 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 6efb0dfc-2ba8-4c39-8181-908eaaa846cc: Field 'regionID' expected a number but got ''.
+2025-02-06 18:04:32,031 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 09e21af6-1215-4433-8295-4c551f7a2312: Field 'regionID' expected a number but got ''.
+2025-02-06 18:04:43,733 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 1b3623e2-8d8c-4102-ac8b-8855f34f60d6: Field 'industry' expected a number but got ''.
+2025-02-06 18:04:44,398 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 54856232-14d2-4b3f-8aaa-85d4d3f120b0: Field 'regionID' expected a number but got ''.
+2025-02-06 18:05:38,389 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job c16dc5fb-e57d-4dc6-a62d-833c5d9324b7: Field 'regionID' expected a number but got ''.
+2025-02-06 18:05:40,583 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/bf0329da-1446-4629-92e9-d6f1cad4647f/: 'NoneType' object is not iterable
+2025-02-06 18:05:47,581 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 2bb63167-04fd-40ce-bbf1-15c91528f6f5: Field 'regionID' expected a number but got ''.
+2025-02-06 18:05:49,740 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job 4a3f6ab9-eb6c-4570-89d4-c5b78ca426ff: Field 'regionID' expected a number but got ''.
+2025-02-06 18:05:53,036 - ERROR - [INSERT_JOBINFO_ORM] Error inserting job feebb2f3-fd07-4980-8206-13d7328b318b: Field 'regionID' expected a number but got ''.
+2025-02-06 18:06:00,734 - ERROR - [SCRAPE_AND_STORE_JOBS_ORM] Error processing job link https://www.jobup.ch/en/jobs/detail/d8d6bca2-189d-4b47-8163-3d9cb1d9f916/: 'NoneType' object is not iterable
