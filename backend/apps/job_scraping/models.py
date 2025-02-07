@@ -1,11 +1,12 @@
 from django.db import models
+from .fields import NullableIntegerField
 
 class Job(models.Model):
     # Use a CharField as primary key since your IDs are strings
     id = models.CharField(max_length=255, primary_key=True, unique=True)
     externalUrl = models.URLField(blank=True, null=True)
     logo = models.URLField(blank=True, null=True)
-    company_id = models.CharField(max_length=255, blank=True, null=True)
+    company_id = NullableIntegerField(blank=True, null=True)
     company_name = models.CharField(max_length=255, blank=True, null=True)
     contact_firstName = models.CharField(max_length=255, blank=True, null=True)
     contact_lastName = models.CharField(max_length=255, blank=True, null=True)
@@ -24,11 +25,11 @@ class Job(models.Model):
     synonym = models.TextField(blank=True, null=True)
     template_lead = models.TextField(blank=True, null=True)
     template_title = models.TextField(blank=True, null=True)
-    industry = models.IntegerField(blank=True, null=True)
-    regionID = models.IntegerField(blank=True, null=True)
+    industry = NullableIntegerField(blank=True, null=True)
+    regionID = NullableIntegerField(blank=True, null=True)
     employmentGrades = models.TextField(blank=True, null=True)
-    employmentPositionIds = models.CharField(max_length=255, blank=True, null=True)
-    employmentTypeIds = models.CharField(max_length=255, blank=True, null=True)
+    employmentPositionIds = NullableIntegerField(blank=True, null=True)
+    employmentTypeIds = NullableIntegerField(blank=True, null=True)
 
     def __str__(self):
         return self.template_title or self.id

@@ -17,7 +17,7 @@ os.makedirs(LOGGING_DIR, exist_ok=True)  # Ensure logs directory exists
 # Database Names
 DATABASES = {
     "jobs": os.path.join(DATA_DIR, "jobs.db"),
-    'job_ads_embeddings': DATA_DIR
+    'job_ads_embeddings': os.path.join(DATA_DIR, 'job_ads_embeddings'),
 }
 
 # Logging configuration

@@ -254,6 +254,8 @@ def insert_jobinfo_orm(clean_data):
 
         # Convert industry value: if it's an empty string, set to None; else try to convert to int.
         industry_value = job.get("industry")
+        if isinstance(industry_value, str):
+            industry_value = industry_value.strip()
         if industry_value == "":
             industry_value = None
         else:
@@ -287,7 +289,7 @@ def insert_jobinfo_orm(clean_data):
                     "synonym": job.get("synonym"),
                     "template_lead": combined_template,
                     "template_title": job.get("template_title"),
-                    "industry": industry_value
+                    "industry": industry_value,
                     "regionID": job.get("regionID"),
                     "employmentPositionIds": job.get("employmentPositionIds"),
                     "employmentTypeIds": job.get("employmentTypeIds"),
