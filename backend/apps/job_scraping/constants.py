@@ -171,3 +171,21 @@ INDUSTRIES = {
         'EN': "Miscellaneous",
     },
 }
+
+def fetch_industries(lang: str = 'EN') -> list:
+    """
+    Returns a list of tuples containing industry identifiers and their names in the specified language.
+    
+    Args:
+        lang (str): Language code to use ('EN' or 'FR').
+    
+    Returns:
+        list: A sorted list of tuples, each of the form (id, industry_name).
+    """
+    industries = []
+    for industry_id, details in INDUSTRIES.items():
+        name = details.get(lang, "")
+        industries.append((industry_id, name))
+    # Sort the list by the industry id (or any other criteria if desired)
+    industries.sort(key=lambda x: x[0])
+    return industries

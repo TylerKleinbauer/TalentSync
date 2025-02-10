@@ -263,6 +263,43 @@ def insert_jobinfo_orm(clean_data):
                 industry_value = int(industry_value)
             except ValueError:
                 industry_value = None  # Or handle it as needed
+
+        # Convert  employmentPositionIds: if it's an empty string, set to None; else try to convert to int.
+        employmentPositionIds_value = job.get("employmentPositionIds")
+        if isinstance(employmentPositionIds_value, str):
+            employmentPositionIds_value = employmentPositionIds_value.strip()
+        if employmentPositionIds_value == "":
+            employmentPositionIds_value = None
+        else:
+            try:
+                employmentPositionIds_value = int(employmentPositionIds_value)
+            except ValueError:
+                employmentPositionIds_value = None  # Or handle it as needed
+            
+        
+        # Convert  employmentTypeIds: if it's an empty string, set to None; else try to convert to int.
+        employmentTypeIds_value = job.get("employmentTypeIds")
+        if isinstance(employmentTypeIds_value, str):
+            employmentTypeIds_value = employmentTypeIds_value.strip()
+        if employmentTypeIds_value == "":
+            employmentTypeIds_value = None
+        else:
+            try:
+                employmentTypeIds_value = int(employmentTypeIds_value)
+            except ValueError:
+                employmentTypeIds_value = None  # Or handle it as needed
+            
+        # Convert  regionID: if it's an empty string, set to None; else try to convert to int.
+        regionID_value = job.get("regionID")
+        if isinstance(regionID_value, str):
+            regionID_value = regionID_value.strip()
+        if regionID_value == "":
+            regionID_value = None
+        else:
+            try:
+                regionID_value = int(regionID_value)
+            except ValueError:
+                regionID_value = None  # Or handle it as needed
         
         try:
             Job.objects.update_or_create(
@@ -290,9 +327,9 @@ def insert_jobinfo_orm(clean_data):
                     "template_lead": combined_template,
                     "template_title": job.get("template_title"),
                     "industry": industry_value,
-                    "regionID": job.get("regionID"),
-                    "employmentPositionIds": job.get("employmentPositionIds"),
-                    "employmentTypeIds": job.get("employmentTypeIds"),
+                    "regionID": regionID_value,
+                    "employmentPositionIds": employmentPositionIds_value,
+                    "employmentTypeIds": employmentTypeIds_value,
                     "employmentGrades": job.get("employmentGrades"),
                 },
             )

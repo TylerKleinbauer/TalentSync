@@ -82,20 +82,23 @@ def get_industries():
             # Commit changes to the database
             conn.commit()
 
-def fetch_industries(lang='EN') -> list:
-    """
-    fetches industries from the database
 
-    Args:
-    lang (str): language of the industries to fetch (EN or FR)
+### Obsolete function. New fetch_industries moved to constants.py
 
-    Returns:
-    list: list of industries in the table
-    """
+# def fetch_industries(lang='EN') -> list:
+#     """
+#     fetches industries from the database
+
+#     Args:
+#     lang (str): language of the industries to fetch (EN or FR)
+
+#     Returns:
+#     list: list of industries in the table
+#     """
     
-    conn = sqlite3.connect(DATABASES["identifiers"])
-    cursor = conn.cursor()
-    cursor.execute(f"SELECT id, name FROM industries where lang = '{lang}'")
-    industries = cursor.fetchall()
-    conn.close()
-    return industries
+#     conn = sqlite3.connect(DATABASES["identifiers"])
+#     cursor = conn.cursor()
+#     cursor.execute(f"SELECT id, name FROM industries where lang = '{lang}'")
+#     industries = cursor.fetchall()
+#     conn.close()
+#     return industries
