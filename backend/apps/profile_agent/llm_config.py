@@ -21,5 +21,4 @@ class LLMFactory:
             raise ValueError(f"Invalid model_key '{model_key}'. Available keys: {list(self.LLM_CONFIGS.keys())}")
         return ChatOpenAI(**key)
 
-# Optionally, create a singleton instance that everyone can use:
-global_llm_factory = LLMFactory()
+
