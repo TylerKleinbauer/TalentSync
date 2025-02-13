@@ -21,3 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('job_scraping/', include('backend.apps.job_scraping.urls')), # available at: http://localhost:8000/job_scraping/api/jobs/
 ]
+
+# Customize admin site
+admin.site.site_header = "TalentSync Admin"
+admin.site.site_title = "TalentSync Admin Portal"
+admin.site.index_title = "Welcome to TalentSync Admin Portal"

@@ -145,3 +145,5 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.BrowsableAPIRenderer',  # ✅ Enables Browsable API
     ]
 }
+
+AUTH_USER_MODEL = 'users.User'

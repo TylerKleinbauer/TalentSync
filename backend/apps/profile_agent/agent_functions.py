@@ -1,7 +1,7 @@
 # Import the necessary libraries
 from langchain_core.messages import SystemMessage, HumanMessage
-from asgiref.sync import sync_to_async
 import uuid
+from django.db import transaction
 
 # Import the agent classes
 from backend.apps.profile_agent.agent_classes import ProfileState, UserProfile
@@ -11,6 +11,10 @@ from config.llm_config import LLMFactory
 
 # Import the DB UserProfile model
 from backend.apps.profile_agent.models import DBUserProfile
+
+# Import the User model
+from backend.apps.users.models import User
+
 
 
 def create_profile(state: ProfileState) -> dict:
@@ -61,42 +65,37 @@ def create_profile(state: ProfileState) -> dict:
         cv=state['user_docs'][0],
         cover_letter=state['user_docs'][1], 
         user_feedback=state.get('user_feedback', '')
-        )
+    )
         
     llm_factory = LLMFactory()
     llm = llm_factory.get_llm(model_key='gpt-4o')
     structured_llm = llm.with_structured_output(UserProfile)
     
-    # Update the state with the generated base_profile
-    detailed_profile= structured_llm.invoke([SystemMessage(content=system_message)]+[HumanMessage(content="Can you generate the user profile please?")])
+    detailed_profile = structured_llm.invoke([
+        SystemMessage(content=system_message),
+        HumanMessage(content="Can you generate the user profile please?")
+    ])
 
     return {"user_profile": detailed_profile}
 
 def human_feedback(state: ProfileState):
     """ No-op node that should be interrupted on """
-    print('Would you like to add something ?')
     pass
 
-async def write_profile(state: ProfileState) -> None:
-    """
-    Writes the final user profile to the database.
-    
-    Args:
-        state (ProfileState): Current state containing the user profile
-    
-    Returns:
-        None
-    """
+def write_profile(state: ProfileState) -> dict:
+    """Writes the final user profile to the database."""
+    print("\nEntering write_profile function")
     user_profile = state.get('user_profile')
+    user_id = state.get('user_id')
+    
     if user_profile:
-        @sync_to_async
-        def create_or_update_profile():
-            try:
-                # Generate a unique ID using UUID4
-                unique_id = str(uuid.uuid4())
+        try:
+            with transaction.atomic():
+                # Get or create user
+                user = User.objects.get(id=user_id)
                 
-                DBUserProfile.objects.update_or_create(
-                    id=unique_id,
+                profile, created = DBUserProfile.objects.update_or_create(
+                    user=user,  # Use user instead of generating new ID
                     defaults={
                         'name': user_profile.name,
                         'work_experience': user_profile.work_experience,
@@ -106,28 +105,29 @@ async def write_profile(state: ProfileState) -> None:
                         'other_info': user_profile.other_info
                     },
                 )
-            except Exception as e:
-                print(f"Error updating or creating user profile: {e}")
                 
-        # Call the async function
-        await create_or_update_profile()
-    
-    return {}
+                print(f"Profile {'created' if created else 'updated'} successfully!")
+            return None
+            
+        except Exception as e:
+            print(f"Error updating or creating user profile: {e}")
+            print(f"Error type: {type(e)}")
+            import traceback
+            print(f"Full traceback: {traceback.format_exc()}")
+            return None
+    else:
+        print("No user profile found in state")
+        return None
 
-async def should_continue(state: ProfileState) -> str:
-    """
-    Determines the next node based on whether there is user feedback.
-    
-    Args:
-        state (ProfileState): Current state
-    
-    Returns:
-        str: Name of the next node to execute
-    """
+def should_continue(state: ProfileState) -> str:
+    """Determines the next node based on whether there is user feedback."""
     # Check if human feedback is present
     human_feedback = state.get('user_feedback', None)
+    print(f"\nIn should_continue function:")
+    print(f"User feedback: {human_feedback}")
     if human_feedback:
+        print("Routing to create_profile")
         return "create_profile"
     
-    # If no feedback, proceed to write the profile
+    print("Routing to write_profile")
     return "write_profile"

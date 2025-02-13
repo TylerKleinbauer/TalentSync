@@ -2,7 +2,7 @@ import sys
 import os
 
 # Get the absolute path to the root directory ('Lucy')
-root_path = os.path.abspath(os.path.join(os.getcwd(), '../../../'))
+root_path = os.path.abspath(os.path.join(os.getcwd(), '..'))
 if root_path not in sys.path:
     sys.path.append(root_path)
 

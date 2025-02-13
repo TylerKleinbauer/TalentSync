@@ -21,3 +21,4 @@ class ProfileState(TypedDict):
     user_docs: List[str]
     user_profile: UserProfile
     user_feedback: str
+    user_id: str 
