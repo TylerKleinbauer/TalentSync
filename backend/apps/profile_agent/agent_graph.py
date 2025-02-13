@@ -34,8 +34,3 @@ def build_profile_graph():
     profile_graph = profile_builder.compile(checkpointer=memory, interrupt_before=['human_feedback'])
     
     return profile_graph, memory
-
-# Optional: If you still want to display the graph when the module is run directly
-if __name__ == "__main__":
-    graph, _ = build_profile_graph()
-    display(Image(graph.get_graph().draw_mermaid_png()))

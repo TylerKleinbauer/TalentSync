@@ -11,7 +11,7 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", "backend.settings")
 import django
 django.setup()
 
-from .models import DBUserProfile
+from backend.apps.profile_agent.models import DBUserProfile
 
 def view_latest_profile():
     """

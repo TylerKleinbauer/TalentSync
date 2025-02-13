@@ -7,7 +7,7 @@ import uuid
 from backend.apps.profile_agent.agent_classes import ProfileState, UserProfile
 
 # Import the LLM factory
-from backend.apps.profile_agent.llm_config import LLMFactory
+from config.llm_config import LLMFactory
 
 # Import the DB UserProfile model
 from backend.apps.profile_agent.models import DBUserProfile

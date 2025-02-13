@@ -12,8 +12,8 @@ django.setup()
 
 import asyncio
 from typing import Optional
-from .agent_graph import build_profile_graph
-from .agent_classes import ProfileState
+from backend.apps.profile_agent.agent_graph import build_profile_graph
+from backend.apps.profile_agent.agent_classes import ProfileState
 
 async def test_profile_graph(cv: str, cover_letter: str) -> None:
     """
