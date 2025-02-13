@@ -77,20 +77,18 @@ def human_feedback(state: ProfileState):
     print('Would you like to add something ?')
     pass
 
-async def should_continue(state: ProfileState):
-    """ Return the next node to execute """
+async def write_profile(state: ProfileState) -> None:
+    """
+    Writes the final user profile to the database.
     
-    # Check if human feedback is present
-    human_feedback = state.get('user_feedback', None)
-    if human_feedback:
-        return "create_profile"
+    Args:
+        state (ProfileState): Current state containing the user profile
     
-    # Otherwise continue
-    # Store the user profile in the database
+    Returns:
+        None
+    """
     user_profile = state.get('user_profile')
     if user_profile:
-        from backend.apps.profile_agent.models import DBUserProfile
-        
         @sync_to_async
         def create_or_update_profile():
             try:
@@ -113,5 +111,23 @@ async def should_continue(state: ProfileState):
                 
         # Call the async function
         await create_or_update_profile()
-        
-        return END
+    
+    return {}
+
+async def should_continue(state: ProfileState) -> str:
+    """
+    Determines the next node based on whether there is user feedback.
+    
+    Args:
+        state (ProfileState): Current state
+    
+    Returns:
+        str: Name of the next node to execute
+    """
+    # Check if human feedback is present
+    human_feedback = state.get('user_feedback', None)
+    if human_feedback:
+        return "create_profile"
+    
+    # If no feedback, proceed to write the profile
+    return "write_profile"
