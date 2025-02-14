@@ -126,8 +126,83 @@ def should_continue(state: ProfileState) -> str:
     print(f"\nIn should_continue function:")
     print(f"User feedback: {human_feedback}")
     if human_feedback:
-        print("Routing to create_profile")
-        return "create_profile"
+        print("Routing to edit_profile")
+        return "edit_profile"
     
     print("Routing to write_profile")
     return "write_profile"
+
+def profile_exists(state: ProfileState) -> str:
+    """
+    Checks if a user has an existing profile and routes accordingly.
+    
+    Returns:
+        str: 'human_feedback' if profile exists, 'create_profile' if not
+    """
+    user_id = state.get('user_id')
+    
+    try:
+        # Check if user has a profile
+        user = User.objects.get(id=user_id)
+        profile = DBUserProfile.objects.filter(user=user).first()
+        
+        if profile:
+            # Add existing profile to state using user_profile key
+            state['user_profile'] = UserProfile(
+                name=profile.name,
+                work_experience=profile.work_experience,
+                skills=profile.skills,
+                education=profile.education,
+                certifications=profile.certifications,
+                other_info=profile.other_info
+            )
+            print("Existing profile found, routing to human_feedback")
+            return "human_feedback"
+        
+        print("No existing profile found, routing to create_profile")
+        return "create_profile"
+        
+    except Exception as e:
+        print(f"Error checking profile existence: {e}")
+        return "create_profile"
+
+def edit_profile(state: ProfileState) -> dict:
+    """
+    Modifies an existing profile based on user feedback.
+    """
+    system_message = """Your task is to modify an existing user work profile based on user feedback.
+    The current profile is:
+    {current_profile}
+    
+    The user has provided the following feedback for modifications:
+    {user_feedback}
+    
+    Please generate an updated profile incorporating the user's feedback.
+    The profile must maintain the following sections:
+    (a) The user's name
+    (b) Work experiences
+    (c) Skills
+    (d) Education
+    (e) Certifications
+    (f) Other information
+    
+    Only modify the sections that the user feedback pertains to.
+    Keep all other information unchanged.
+    Do not invent or remove any information unless specifically requested by the user.
+    """
+
+    system_message = system_message.format(
+        current_profile=state['user_profile'].model_dump(),
+        user_feedback=state.get('user_feedback', None)
+    )
+    
+    llm_factory = LLMFactory()
+    llm = llm_factory.get_llm(model_key='gpt-4o')
+    structured_llm = llm.with_structured_output(UserProfile)
+    
+    updated_profile = structured_llm.invoke([
+        SystemMessage(content=system_message),
+        HumanMessage(content="Can you update the user profile based on the feedback?")
+    ])
+
+    return {"user_profile": updated_profile}
