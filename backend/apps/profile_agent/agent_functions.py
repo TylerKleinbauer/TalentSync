@@ -126,8 +126,8 @@ def should_continue(state: ProfileState) -> str:
     print(f"\nIn should_continue function:")
     print(f"User feedback: {human_feedback}")
     if human_feedback:
-        print("Routing to edit_profile")
-        return "edit_profile"
+        print("Routing to human_feedback")
+        return "human_feedback"
     
     print("Routing to write_profile")
     return "write_profile"
@@ -148,16 +148,8 @@ def profile_exists(state: ProfileState) -> str:
         
         if profile:
             # Add existing profile to state using user_profile key
-            state['user_profile'] = UserProfile(
-                name=profile.name,
-                work_experience=profile.work_experience,
-                skills=profile.skills,
-                education=profile.education,
-                certifications=profile.certifications,
-                other_info=profile.other_info
-            )
-            print("Existing profile found, routing to human_feedback")
-            return "human_feedback"
+            print("Existing profile found, routing to add_user_profile")
+            return "add_user_profile"
         
         print("No existing profile found, routing to create_profile")
         return "create_profile"
@@ -165,6 +157,20 @@ def profile_exists(state: ProfileState) -> str:
     except Exception as e:
         print(f"Error checking profile existence: {e}")
         return "create_profile"
+
+def add_user_profile(state: ProfileState) -> dict:
+    """Adds the user profile to the state."""
+    user_id = state.get('user_id')
+    complete_profile = DBUserProfile.objects.filter(user=user_id).first()
+    user_profile = UserProfile(
+        name=complete_profile.name,
+        work_experience=complete_profile.work_experience,
+        skills=complete_profile.skills,
+        education=complete_profile.education,
+        certifications=complete_profile.certifications,
+        other_info=complete_profile.other_info
+    )
+    return {'user_profile': user_profile}
 
 def edit_profile(state: ProfileState) -> dict:
     """
@@ -176,6 +182,11 @@ def edit_profile(state: ProfileState) -> dict:
     
     The user has provided the following feedback for modifications:
     {user_feedback}
+    
+    Optionally: the user may have uploaded a new CV or cover letter.
+    If this is the case, please use the following documents to update the profile:
+    {new_cv}
+    {new_cover_letter}
     
     Please generate an updated profile incorporating the user's feedback.
     The profile must maintain the following sections:
@@ -193,7 +204,9 @@ def edit_profile(state: ProfileState) -> dict:
 
     system_message = system_message.format(
         current_profile=state['user_profile'].model_dump(),
-        user_feedback=state.get('user_feedback', None)
+        user_feedback=state.get('user_feedback', None),
+        new_cv=state.get('cv', None),
+        new_cover_letter=state.get('cover_letter', None)
     )
     
     llm_factory = LLMFactory()

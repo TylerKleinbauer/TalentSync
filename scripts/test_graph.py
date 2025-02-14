@@ -29,7 +29,7 @@ def test_profile_graph(cv: str, cover_letter: str, user_id: str) -> None:
     })
     
     # Create a new thread
-    thread = {"configurable": {"thread_id": "c5e8e28a-92cd-4fb7-ace4-404298cba717"}}
+    thread = {"configurable": {"thread_id": user_id}}
     
     # Start the graph execution
     print("Starting profile generation...")
@@ -96,7 +96,7 @@ if __name__ == "__main__":
     from django.contrib.auth import get_user_model
     User = get_user_model()
     test_user, created = User.objects.get_or_create(
-        username="test_user",
+        id="c5e8e28a-92cd-4fb7-ace4-404298cba717",
         defaults={
             "email": "test@example.com",
             "is_staff": True

@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'backend.apps.job_scraping',
     'backend.apps.data_processing',
     'backend.apps.profile_agent',
+    'backend.apps.job_finding_agent',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

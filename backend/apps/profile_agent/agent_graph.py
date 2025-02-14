@@ -14,7 +14,8 @@ from backend.apps.profile_agent.agent_functions import (
     should_continue, 
     write_profile,
     profile_exists,
-    edit_profile
+    edit_profile,
+    add_user_profile
 )
 
 
@@ -52,16 +53,20 @@ def build_profile_graph():
         print("\nExecuting should_continue node")
         return should_continue(state)
     
+    def debug_add_user_profile(state: Dict[str, Any]) -> Dict[str, Any]:
+        print("\nExecuting add_user_profile node")
+        return add_user_profile(state)
+    
     # Add nodes
-    profile_builder.add_node("profile_exists", debug_profile_exists)
     profile_builder.add_node("create_profile", debug_create_profile)
     profile_builder.add_node('human_feedback', debug_human_feedback)
     profile_builder.add_node('edit_profile', debug_edit_profile)
     profile_builder.add_node('write_profile', debug_write_profile)
+    profile_builder.add_node('add_user_profile', debug_add_user_profile)
 
     # Add edges
-    profile_builder.add_edge(START, "profile_exists")
-    profile_builder.add_conditional_edges("profile_exists", debug_profile_exists,["create_profile", "human_feedback"])
+    profile_builder.add_conditional_edges(START, debug_profile_exists,["create_profile", "add_user_profile"])
+    profile_builder.add_edge('add_user_profile', 'human_feedback')
     profile_builder.add_edge('create_profile', 'human_feedback')
     profile_builder.add_edge('human_feedback', 'edit_profile')
     profile_builder.add_conditional_edges('edit_profile',debug_should_continue,["human_feedback", "write_profile"])
