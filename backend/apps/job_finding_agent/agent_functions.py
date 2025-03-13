@@ -26,7 +26,7 @@ def retrieve_profile_from_db(state: MultiJobEvaluationState):
         # First get the user
         user = User.objects.get(id=user_id)
         print(f"Found user: {user.email}")
-        
+        %
         # Then get their profile through the OneToOne relationship
         profile = user.profile  # This works because of the related_name='profile' in DBUserProfile model
         print(f"Found profile for user: {profile.name}")

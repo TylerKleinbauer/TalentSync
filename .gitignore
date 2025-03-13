@@ -7,3 +7,6 @@
 # ignore databases
 *.sqlite3
 *.db
+
+*.docx
+*.pdf
